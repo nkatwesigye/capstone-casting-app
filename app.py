@@ -4,8 +4,9 @@ from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import exc
 from flask_cors import CORS
 import random
+from flask_migrate import Migrate
 
-from models import setup_db, Movies,Actors
+from models import setup_db, Movies,Actors, db
 from auth.auth import AuthError, requires_auth
 
 def create_app(test_config=None):
@@ -14,6 +15,7 @@ def create_app(test_config=None):
   setup_db(app)
   CORS(app, resources={r'/*': {'origins': '*'}})
   
+  migrate = Migrate(app,db)
 
   # CORS Headers 
   @app.after_request
@@ -103,7 +105,7 @@ def create_app(test_config=None):
 
   @app.route('/movies',methods=['GET'])
   @requires_auth('get:movies')
-  #
+
   def movies_get(payload):
       formated_movies = []
       dictionarize = {}
@@ -135,7 +137,7 @@ def create_app(test_config=None):
           movie.insert()
           movie_id = movie.id
           movie_added = Movies.query.filter_by(id=movie_id).first()
-          all_movies = get_all_movies()
+          #all_movies = get_all_movies()
           #print(all_movies)
       return jsonify({
          'success': True,
@@ -194,12 +196,12 @@ def create_app(test_config=None):
       except :
         try:
          if request.get_json().get('new_actor_name'):
-           body= request.get_json()
+           body = request.get_json()
            new_actor_name = body.get('new_actor_name')
            actor_by_id.name = new_actor_name
         except :
           try: 
-            request.get_json().get('new_actor_age')
+           if request.get_json().get('new_actor_age'):
             body= request.get_json()
             new_actor_name = body.get('new_actor_age')
             actor_by_id.age = new_actor_age
@@ -240,4 +242,9 @@ def create_app(test_config=None):
       'deleted': actor_id
     })
       
-  return app
+  return app 
+
+
+app = create_app()
+if __name__ == '__main__':
+    app.run()  
