@@ -52,6 +52,7 @@ The Casting Agency models a company that is responsible for creating movies and 
 ## Models
 
 Movies with attributes contain id, title, release_date, actor_id 
+
 Actors with attributes id , name, age and gender
 
 ## Environment Variables
