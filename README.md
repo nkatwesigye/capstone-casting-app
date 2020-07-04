@@ -51,12 +51,12 @@ The Casting Agency models a company that is responsible for creating movies and 
 
 ## Models
 
-Movies with attributes contain id, title, release_date, actor_id 
+Movies with attributes contain id, title, release_date, actor_id \n
 Actors with attributes id , name, age and gender
 
 ## Environment Variables
 
-In the `.env` file, there is a JWT token for each User Role and the DATABASE_URL
+The Auth0 domain ,api audience and JWT tokens for each of User Role can be found in `setup.sh`.
 - CASTING_ASSISTANT
 - CASTING_DIRECTOR
 - EXECUTIVE_PRODUCER
