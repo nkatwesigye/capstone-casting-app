@@ -114,7 +114,7 @@ def create_app(test_config=None):
     def movies_get(payload):
         formated_movies = []
         dictionarize = {}
-        all_movies_with_actor_name = Movies.query.with_entities(Movies.id, Movies.title, Movies.release_date, Actors.name).join(Actors(Movies.actor_id == Actors.id)).all()
+        all_movies_with_actor_name = Movies.query.with_entities(Movies.id, Movies.title, Movies.release_date, Actors.name).join(Actors,(Movies.actor_id == Actors.id)).all()
         for movies in all_movies_with_actor_name:
             dictionarize['id'] = movies[0]
             dictionarize['movie_name'] = movies[1]
