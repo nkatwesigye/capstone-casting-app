@@ -4,6 +4,11 @@
 
 **Heroku link:** (https://ud-casting-app.herokuapp.com/)
 
+## The project implements RBAC using auth0, to login or set up an account, go to the following url: 
+
+https://dev-4762mi-b.us.auth0.com/authorize?response_type=token&client_id=FQqOCOlHtV3tU4qZsvfMRcpi8R52YDKp&
+redirect_uri=https://ud-casting-app.herokuapp.com/movies&audience=https://casting/
+
 ## Getting Started
 
 ### Installing Dependencies
