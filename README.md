@@ -110,7 +110,7 @@ reponse = {
             "name": "John Doe"
         },
 
-
+This endpoint will create a new actor in the database based on the json that is in the body of the request, returns actor added 
 POST '/actors'
 
 payload = {
@@ -129,10 +129,15 @@ response = {
     },
     "success": true
 }
-
+This endpoint will modify the actor that corresponds to the actor ID that is passed into the url based on the json payload  that is passed into the body of the request, returns added actor
 PATCH '/actors/<int:actor_id>'
 
 params = <int:actor_id>
+
+payload = {
+  "new_actor_name" :"Masters",
+  "new_actor_age" : 30
+              }
 
 response = {
     "all_actors": [
@@ -152,6 +157,7 @@ response = {
     "success": true
 }
 
+This endpoint will delete the actor that corresponds to the actor ID that is passed into the url, returns id of deleted actor
 DELETE '/actors/<int:actor_id>'
 
 params = <int:actor_id>
@@ -160,6 +166,8 @@ response = {
     "deleted": 6,
     "success": true
 }
+
+Fetches all the movies in the database and returns a json object
 
 GET '/movies'
 
@@ -182,6 +190,7 @@ response = {
     "total_movies": 2
 }
 
+This endpoint will create a new movie in the database based on the json that is in the body of the request, returns movie added 
 POST '/movies'
 
 payload = {
@@ -199,6 +208,7 @@ response = {
     },
     "success": true
 
+This endpoint will modify the movie that corresponds to the movie ID that is passed into the url based on the json payload  that is passed into the body of the request, returns added movie
 PATCH '/movies/<int:movie_id>'
 
 params = <int:movie_id>
@@ -207,7 +217,6 @@ payload = {
 "new_movie_name":"Big5",
 "new_release_date": "05-06-2013"
      }
-
 
 response = {
     "all_movies": [
@@ -227,6 +236,7 @@ response = {
     "success": true
 
 
+This endpoint will delete the actor that corresponds to the movie ID that is passed into the url, returns id of deleted movie
 DELETE '/movies/<int:movie_id>'
 
 
