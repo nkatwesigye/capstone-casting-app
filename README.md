@@ -274,5 +274,5 @@ To run unit tests,run in your terminal
 
 ```bash
 
-python3 test.py
+python3 test_app.py
 `````
