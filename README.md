@@ -79,8 +79,8 @@ Executive Producer
 
 ## Endpoints
 
-`````bash
 Fetches all the actors in the database and returns a json object
+`````bash
 GET '/actors'
 
 reponse = {
@@ -109,8 +109,10 @@ reponse = {
             "id": 4,
             "name": "John Doe"
         },
-
+`````
 This endpoint will create a new actor in the database based on the json that is in the body of the request, returns actor added 
+
+`````bash
 POST '/actors'
 
 payload = {
@@ -129,7 +131,11 @@ response = {
     },
     "success": true
 }
+
+`````
 This endpoint will modify the actor that corresponds to the actor ID that is passed into the url based on the json payload  that is passed into the body of the request, returns added actor
+
+`````bash
 PATCH '/actors/<int:actor_id>'
 
 params = <int:actor_id>
@@ -157,7 +163,9 @@ response = {
     "success": true
 }
 
+`````
 This endpoint will delete the actor that corresponds to the actor ID that is passed into the url, returns id of deleted actor
+`````bash
 DELETE '/actors/<int:actor_id>'
 
 params = <int:actor_id>
@@ -167,8 +175,10 @@ response = {
     "success": true
 }
 
+`````
 Fetches all the movies in the database and returns a json object
 
+`````bash
 GET '/movies'
 
 response = {
@@ -189,8 +199,11 @@ response = {
     "success": true,
     "total_movies": 2
 }
+`````
 
 This endpoint will create a new movie in the database based on the json that is in the body of the request, returns movie added 
+
+`````bash
 POST '/movies'
 
 payload = {
@@ -207,8 +220,10 @@ response = {
         "release_date": "01-02-2021"
     },
     "success": true
-
+`````
 This endpoint will modify the movie that corresponds to the movie ID that is passed into the url based on the json payload  that is passed into the body of the request, returns added movie
+
+`````bash
 PATCH '/movies/<int:movie_id>'
 
 params = <int:movie_id>
@@ -234,9 +249,10 @@ response = {
         }
     ],
     "success": true
-
-
+`````
 This endpoint will delete the actor that corresponds to the movie ID that is passed into the url, returns id of deleted movie
+
+`````bash
 DELETE '/movies/<int:movie_id>'
 
 
@@ -248,38 +264,6 @@ response = {
 }
 
 `````
-
-
-There are three roles within the API. Casting Assistant, Casting Director and Executive Producer. The logins for the three roles has been provided in the separate notes 
-
-The url for the API:
-https://capstone-casting.herokuapp.com/
-
-The endpoints are as follows: 
-
-GET '/movies'
-    This endpoint fetches all the movies in the database and displays them as json 
-
-GET '/actors'
-    This endpoint fetches all the actors in the databse and displays them as json 
-
-POST '/movies/create'
-    This endpoint will create a new movie in the database based on the json that is in the body of the request 
-
-POST '/actors/create'
-    This endpoint will create a new actor in the database based on the json that is in the body of the request 
-
-DELETE '/movies/delete/int:movie_id'
-    This endpoint will delete the movie that corresponds to the movie ID that is passed into the url 
-
-DELETE '/actors/delete/int:actor_id'
-    This endpoint will delete the actor that corresponds to the actor ID that is passed into the url 
-
-PATCH '/actors/patch/int:actor_id' 
-    This endpoint will modify the actor that corresponds to the actor ID that is passed into the url based on the json that is passed into the body of the request 
-
-PATCH '/movies/patch/int:movie_id'
-    This endpoint will modify the movie that corresponds to the movie ID that is passed into the url based on the json that is passed into the body of the request
 ## Unit Testing
 
 To run unit tests,run in your terminal
