@@ -63,6 +63,14 @@ def create_app(test_config=None):
             'message': 'Not Found'
         }), 404
 
+    @app.errorhandler(500)
+    def not_found(error):
+        return jsonify({
+            'success': False,
+            'error': 500,
+            'message': 'Token Expired or Internal Server error'
+        }), 500
+
     @app.errorhandler(422)
     def unprocessable_entity(error):
         return jsonify({
