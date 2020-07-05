@@ -57,6 +57,7 @@ Actors with attributes id , name, age and gender
 
 ## Environment Variables
 The Auth0 domain,api audience and JWT tokens for each User Role can be found in `setup.sh`.
+`./setup.sh` will setup the environment variables
 - CASTING_ASSISTANT
 - CASTING_DIRECTOR
 - EXECUTIVE_PRODUCER
